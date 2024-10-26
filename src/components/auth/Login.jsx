@@ -30,13 +30,16 @@ const Login = () => {
         e.preventDefault();
         try {
             dispatch(setLoading(true));
+            console.log("love you mama");
             const res = await axios.post(`${USER_API_END_POINT}/login`, input, {
+                
                 headers: {
                     "Content-Type": "application/json"
                 },
                 withCredentials: true,
             });
             if (res.data.success) {
+                console.log("too");
                 dispatch(setUser(res.data.user));
                 navigate("/");
                 toast.success(res.data.message);
